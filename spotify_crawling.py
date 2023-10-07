@@ -73,7 +73,7 @@ from selenium.webdriver.common.by import By
 url = 'https://accounts.spotify.com/vi/login?continue=https%3A%2F%2Fcharts.spotify.com/login'
 
 username = 'tungbtt.2002@gmail.com'
-password = 'temp_@cc'
+password = '@cc_temp'
 
 driver.get(url)
 time.sleep(5)
