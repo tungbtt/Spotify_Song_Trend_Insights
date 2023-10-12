@@ -85,12 +85,13 @@ time.sleep(5)
 
 driver.find_element(By.XPATH, '//*[@id="login-username"]').send_keys(username)
 driver.implicitly_wait(2)
+time.sleep(2)
 
 driver.find_element(By.XPATH, '//*[@id="login-password"]').send_keys(password)
 
 driver.implicitly_wait(2)
 time.sleep(2)
-#driver.save_screenshot('_id_pass.png')
+driver.save_screenshot('_id_pass.png')
 
 driver.find_element(By.XPATH, '//*[@id="login-button"]/span[1]').click()
 time.sleep(3)
@@ -103,7 +104,7 @@ driver.get("https://charts.spotify.com/charts/view/regional-global-daily/latest"
 time.sleep(5)
 driver.implicitly_wait(5)
 
-#driver.save_screenshot('_global_chart.png')
+driver.save_screenshot('_global_chart.png')
 
 date_picker_element = driver.find_element(By.XPATH, '//*[@id="date_picker"]')
 date = convert_to_desired_format(date_picker_element.get_attribute('value'))
