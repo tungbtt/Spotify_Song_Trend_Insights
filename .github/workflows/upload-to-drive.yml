@@ -1,6 +1,7 @@
 name: Store data in Drive
 on:
-  push: { branches: [master] }
+  schedule:
+    - cron: '*/5 * * * *'# 4 PM UTC     
 jobs:
   buildAndTestForSomePlatforms:
     name: Upload readme to drive
