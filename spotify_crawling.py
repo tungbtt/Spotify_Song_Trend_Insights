@@ -66,10 +66,12 @@ for option in options:
 
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+import random
 
 url = 'https://accounts.spotify.com/'
 
 username_list = ['tungbtt.2002@gmail.com','dokoya2435@ksyhtc.com', 'hegit34563@mugadget.com', 'yegice1055@ibtrades.com']
+random.shuffle(username_list)
 
 for username in username_list:
     driver = webdriver.Chrome(options = chrome_options)
@@ -94,7 +96,7 @@ for username in username_list:
     driver.find_element(By.XPATH, '//*[@id="login-button"]/span[1]').click()
     time.sleep(5)
 
-    driver.save_screenshot('login_status.jpg')
+    driver.save_screenshot('login_status.png')
 
     driver.get("https://charts.spotify.com/charts/view/regional-global-daily/latest")
     driver.implicitly_wait(5)
@@ -108,6 +110,9 @@ for username in username_list:
 
         if username == username_list[-1]:
             exit()
+
+    else:
+        break
 
 print("The Spotify Global Chart is being crawled...")
 
