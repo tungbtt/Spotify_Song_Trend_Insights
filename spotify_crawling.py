@@ -105,6 +105,7 @@ for username in username_list:
 
 
     if len(driver.find_elements(By.XPATH, '//*[@id="date_picker"]')) <= 0:
+        print(username)
         print("The website requires CAPTCHA authentication.")
         driver.quit() 
 
