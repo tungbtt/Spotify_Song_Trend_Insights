@@ -104,15 +104,16 @@ driver.get("https://charts.spotify.com/charts/view/regional-global-daily/latest"
 driver.implicitly_wait(5)
 time.sleep(5)
 
-try:
-    date_picker_element = driver.find_element(By.XPATH, '//*[@id="date_picker"]')
-except NoSuchElementException:
+
+
+if driver.find_elements(By.XPATH, '//*[@id="date_picker"]').size() <= 0:
     print("The website requires CAPTCHA authentication.")
     driver.quit() 
     exit() 
 
-print("The Spotify Global Chart is being crawled...")
 
+
+print("The Spotify Global Chart is being crawled...")
 
 date_picker_element = driver.find_element(By.XPATH, '//*[@id="date_picker"]')
 date = convert_to_desired_format(date_picker_element.get_attribute('value'))
