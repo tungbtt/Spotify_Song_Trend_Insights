@@ -13,11 +13,31 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Upload to gdrive
+      - name: Upload vn_chart.csv
         uses: mathisve/gdrive-upload-action@main
         with:
           filename: datasets/vn_chart.csv
           name: vn_chart.csv
+          folderId: ${{ secrets.FOLDERID }}
+          credentials: ${{ secrets.CREDENTIALS }}
+          encoded: true
+          overwrite: true
+
+      - name: Upload global_chart.csv
+        uses: mathisve/gdrive-upload-action@main
+        with:
+          filename: datasets/global_chart.csv
+          name: global_chart.csv
+          folderId: ${{ secrets.FOLDERID }}
+          credentials: ${{ secrets.CREDENTIALS }}
+          encoded: true
+          overwrite: true
+
+      - name: Upload audio_features.csv
+        uses: mathisve/gdrive-upload-action@main
+        with:
+          filename: datasets/audio_features.csv
+          name: audio_features.csv
           folderId: ${{ secrets.FOLDERID }}
           credentials: ${{ secrets.CREDENTIALS }}
           encoded: true
