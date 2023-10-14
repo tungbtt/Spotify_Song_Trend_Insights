@@ -13,18 +13,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Archive files
-        run: |
-          sudo apt-get update
-          sudo apt-get install zip
-          zip -r archive.zip *
-
       - name: Upload to gdrive
         uses: mathisve/gdrive-upload-action@main
         with:
-          filename: archive.zip
-          name: documentation.zip
+          filename: datasets/vn_chart.csv
+          name: vn_chart.csv
           folderId: ${{ secrets.FOLDERID }}
           credentials: ${{ secrets.CREDENTIALS }}
           encoded: true
-          #overwrite: true
+          overwrite: true
