@@ -92,12 +92,13 @@ driver.implicitly_wait(2)
 time.sleep(5)
 driver.save_screenshot('_id_pass.png')
 
-'''
+
 
 driver.find_element(By.XPATH, '//*[@id="login-button"]/span[1]').click()
 time.sleep(10)
 
-
+driver.save_screenshot('_id_pass_ok.png')
+'''
 print("The Spotify Global Chart is being crawled...")
 
 driver.get("https://charts.spotify.com/charts/view/regional-global-daily/latest")
