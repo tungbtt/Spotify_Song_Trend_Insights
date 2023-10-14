@@ -80,10 +80,7 @@ driver.get(url)
 driver.implicitly_wait(5)
 time.sleep(10)
 
-#driver.save_screenshot('_login.png')
-
-#driver.find_element(By.XPATH, '//*[@id="__next"]/div/div/main/div[2]/div/header/div/div[2]/a/div[1]').click()
-#driver.implicitly_wait(5)
+driver.save_screenshot('_login.png')
 
 driver.find_element(By.XPATH, '//*[@id="login-username"]').send_keys(username)
 driver.implicitly_wait(2)
@@ -94,6 +91,8 @@ driver.find_element(By.XPATH, '//*[@id="login-password"]').send_keys(password)
 driver.implicitly_wait(2)
 time.sleep(5)
 driver.save_screenshot('_id_pass.png')
+
+'''
 
 driver.find_element(By.XPATH, '//*[@id="login-button"]/span[1]').click()
 time.sleep(10)
@@ -260,3 +259,5 @@ if len(audio_features) != 0:
     audio_features.to_csv(r'datasets/audio_features.csv', mode='a', header=check, index=False)
 
 print("Done!")
+
+'''
