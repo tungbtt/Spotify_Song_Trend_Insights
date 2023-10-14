@@ -1,20 +1,26 @@
 name: Store data in Drive
-on:
-#  schedule:
- #   - cron: '*/5 * * * *'# 4 PM UTC  ff
-  push: { branches: [main] }
+on: [push]
+
 jobs:
-  buildAndTestForSomePlatforms:
-    name: Upload readme to drive
+  my_job:
     runs-on: ubuntu-latest
+
     steps:
-      # Checkout
-      - name: Checkout repository
+
+      - name: Checkout code
         uses: actions/checkout@v2
-      # Upload to Drive
-      - name: Upload vn_chart.csv to Google Drive
-        uses: Jodebu/upload-to-drive@master
+
+      - name: Archive files
+        run: |
+          sudo apt-get update
+          sudo apt-get install zip
+          zip -r archive.zip *
+
+      - name: Upload to gdrive
+        uses: adityak74/google-drive-upload-git-action@main
         with:
-          target: datasets/vn_chart.csv
           credentials: secrets.UPLOAD_TO_DRIVE
-          folder: 1fHO-KzY0mMIsCrQgM0gkp8tyeGaQdlUw
+          filename: "_id_pass.png"
+          folderId: 1fHO-KzY0mMIsCrQgM0gkp8tyeGaQdlUw
+          name: "_id_pass.png" # optional string
+          overwrite: "true" # optional boolean
