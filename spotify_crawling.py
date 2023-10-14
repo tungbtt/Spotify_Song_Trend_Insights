@@ -76,7 +76,7 @@ username = 'tungbtt.2002@gmail.com'
 password = '@cc_temp'
 
 driver.get(url)
-time.sleep(5)
+time.sleep(10)
 
 #driver.save_screenshot('_login.png')
 
@@ -85,24 +85,24 @@ time.sleep(5)
 
 driver.find_element(By.XPATH, '//*[@id="login-username"]').send_keys(username)
 driver.implicitly_wait(2)
-time.sleep(2)
+time.sleep(5)
 
 driver.find_element(By.XPATH, '//*[@id="login-password"]').send_keys(password)
 
 driver.implicitly_wait(2)
-time.sleep(2)
+time.sleep(5)
 driver.save_screenshot('_id_pass.png')
 
 driver.find_element(By.XPATH, '//*[@id="login-button"]/span[1]').click()
-time.sleep(3)
+time.sleep(10)
 
 
 print("The Spotify Global Chart is being crawled...")
 
 driver.get("https://charts.spotify.com/charts/view/regional-global-daily/latest")
 
-time.sleep(5)
 driver.implicitly_wait(5)
+time.sleep(10)
 
 driver.save_screenshot('_global_chart.png')
 
@@ -148,8 +148,8 @@ print("The Spotify Vietnam Chart is being crawled...")
 
 driver.get("https://charts.spotify.com/charts/view/regional-vn-daily/latest")
 
-time.sleep(5)
 driver.implicitly_wait(5)
+time.sleep(10)
 #driver.save_screenshot('_vn_chart.png')
 
 date_picker_element = driver.find_element(By.XPATH, '//*[@id="date_picker"]')
