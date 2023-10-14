@@ -71,42 +71,48 @@ time.sleep(10)
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
-url = 'https://accounts.spotify.com/vi/login?continue=https%3A%2F%2Fcharts.spotify.com/login'
+url = 'https://accounts.spotify.com/'
 
 username = 'tungbtt.2002@gmail.com'
 password = '@cc_temp'
 
 driver.get(url)
 driver.implicitly_wait(5)
-time.sleep(10)
+time.sleep(5)
 
 driver.save_screenshot('_login.png')
 
 driver.find_element(By.XPATH, '//*[@id="login-username"]').send_keys(username)
 driver.implicitly_wait(2)
-time.sleep(5)
+time.sleep(3)
 
 driver.find_element(By.XPATH, '//*[@id="login-password"]').send_keys(password)
 
 driver.implicitly_wait(2)
-time.sleep(5)
-driver.save_screenshot('_id_pass.png')
+time.sleep(3)
+
+#driver.save_screenshot('_id_pass.png')
 
 
 
 driver.find_element(By.XPATH, '//*[@id="login-button"]/span[1]').click()
-time.sleep(10)
+time.sleep(5)
 
-driver.save_screenshot('_id_pass_ok.png')
-'''
-print("The Spotify Global Chart is being crawled...")
+driver.save_screenshot('login_status.png')
 
 driver.get("https://charts.spotify.com/charts/view/regional-global-daily/latest")
-
 driver.implicitly_wait(5)
-time.sleep(10)
+time.sleep(5)
 
-driver.save_screenshot('_global_chart.png')
+try:
+    date_picker_element = driver.find_element(By.XPATH, '//*[@id="date_picker"]')
+except NoSuchElementException:
+    print("The website requires CAPTCHA authentication.")
+    driver.quit() 
+    exit() 
+
+print("The Spotify Global Chart is being crawled...")
+
 
 date_picker_element = driver.find_element(By.XPATH, '//*[@id="date_picker"]')
 date = convert_to_desired_format(date_picker_element.get_attribute('value'))
@@ -151,7 +157,7 @@ print("The Spotify Vietnam Chart is being crawled...")
 driver.get("https://charts.spotify.com/charts/view/regional-vn-daily/latest")
 
 driver.implicitly_wait(5)
-time.sleep(10)
+time.sleep(5)
 #driver.save_screenshot('_vn_chart.png')
 
 date_picker_element = driver.find_element(By.XPATH, '//*[@id="date_picker"]')
