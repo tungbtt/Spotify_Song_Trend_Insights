@@ -65,6 +65,7 @@ for option in options:
 
     
 driver = webdriver.Chrome(options = chrome_options)
+time.sleep(10)
 
 
 from selenium.webdriver.common.keys import Keys
@@ -76,6 +77,7 @@ username = 'tungbtt.2002@gmail.com'
 password = '@cc_temp'
 
 driver.get(url)
+driver.implicitly_wait(5)
 time.sleep(10)
 
 #driver.save_screenshot('_login.png')
