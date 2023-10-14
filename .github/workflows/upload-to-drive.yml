@@ -1,12 +1,15 @@
-name: Store data in Drive
-on: [push]
+name: upload to Drive
+on:
+  push:
+    branches:
+      - 'master'
+      - 'main'
+      - '!test'
 
 jobs:
-  my_job:
+  gdrive-upload:
     runs-on: ubuntu-latest
-
     steps:
-
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -17,10 +20,9 @@ jobs:
           zip -r archive.zip *
 
       - name: Upload to gdrive
-        uses: adityak74/google-drive-upload-git-action@main
+        uses: mathisve/gdrive-upload-action@main
         with:
-          credentials: secrets.UPLOAD_TO_DRIVE
-          filename: "_id_pass.png"
+          filename: _id_pass.png
           folderId: 1fHO-KzY0mMIsCrQgM0gkp8tyeGaQdlUw
-          name: "_id_pass.png" # optional string
-          overwrite: "true" # optional boolean
+          credentials: ${{ secrets.credentials }}
+          encoded: false
