@@ -23,6 +23,6 @@ jobs:
         uses: mathisve/gdrive-upload-action@main
         with:
           filename: "_id_pass.png"
-          folderId: "1fHO-KzY0mMIsCrQgM0gkp8tyeGaQdlUw"
-          credentials: ${{ secrets.credentials }}
-          encoded: false
+          folderId: ${{ secrets.FOLDERID }}
+          credentials: ${{ secrets.CREDENTIALS }}
+          encoded: true
