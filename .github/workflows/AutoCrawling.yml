@@ -1,7 +1,5 @@
 name: AutoCrawling
-on:
-  schedule:
-    - cron: '0 16 * * *'# 4 PM UTC     '*/5 * * * *'
+on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
