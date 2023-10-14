@@ -63,55 +63,51 @@ options = [
 for option in options:
     chrome_options.add_argument(option)
 
-    
-driver = webdriver.Chrome(options = chrome_options)
-time.sleep(10)
-
 
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
 url = 'https://accounts.spotify.com/'
 
-username = 'tungbtt.2002@gmail.com'
-password = '@cc_temp'
+username_list = ['tungbtt.2002@gmail.com','dokoya2435@ksyhtc.com', 'hegit34563@mugadget.com', 'yegice1055@ibtrades.com']
 
-driver.get(url)
-driver.implicitly_wait(5)
-time.sleep(5)
+for username in username_list:
+    driver = webdriver.Chrome(options = chrome_options)
+    time.sleep(5)
 
-driver.save_screenshot('_login.png')
+    password = '@cc_temp'
 
-driver.find_element(By.XPATH, '//*[@id="login-username"]').send_keys(username)
-driver.implicitly_wait(2)
-time.sleep(3)
+    driver.get(url)
+    driver.implicitly_wait(5)
+    time.sleep(5)
 
-driver.find_element(By.XPATH, '//*[@id="login-password"]').send_keys(password)
+    driver.find_element(By.XPATH, '//*[@id="login-username"]').send_keys(username)
+    driver.implicitly_wait(2)
+    time.sleep(3)
 
-driver.implicitly_wait(2)
-time.sleep(3)
+    driver.find_element(By.XPATH, '//*[@id="login-password"]').send_keys(password)
 
-#driver.save_screenshot('_id_pass.png')
-
-
-
-driver.find_element(By.XPATH, '//*[@id="login-button"]/span[1]').click()
-time.sleep(5)
-
-driver.save_screenshot('login_status.png')
-
-driver.get("https://charts.spotify.com/charts/view/regional-global-daily/latest")
-driver.implicitly_wait(5)
-time.sleep(5)
+    driver.implicitly_wait(2)
+    time.sleep(3)
 
 
+    driver.find_element(By.XPATH, '//*[@id="login-button"]/span[1]').click()
+    time.sleep(5)
 
-if len(driver.find_elements(By.XPATH, '//*[@id="date_picker"]')) <= 0:
-    print("The website requires CAPTCHA authentication.")
-    driver.quit() 
-    exit() 
+    driver.save_screenshot('login_status.png')
+
+    driver.get("https://charts.spotify.com/charts/view/regional-global-daily/latest")
+    driver.implicitly_wait(5)
+    time.sleep(5)
 
 
+
+    if len(driver.find_elements(By.XPATH, '//*[@id="date_picker"]')) <= 0:
+        print("The website requires CAPTCHA authentication.")
+        driver.quit() 
+
+        if username == username_list[-1]:
+            exit()
 
 print("The Spotify Global Chart is being crawled...")
 
