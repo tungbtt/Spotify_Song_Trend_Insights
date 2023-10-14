@@ -106,7 +106,7 @@ time.sleep(5)
 
 
 
-if driver.find_elements(By.XPATH, '//*[@id="date_picker"]').size() <= 0:
+if len(driver.find_elements(By.XPATH, '//*[@id="date_picker"]')) <= 0:
     print("The website requires CAPTCHA authentication.")
     driver.quit() 
     exit() 
