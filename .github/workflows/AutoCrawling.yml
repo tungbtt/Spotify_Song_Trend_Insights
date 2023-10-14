@@ -1,7 +1,6 @@
 name: AutoCrawling
 on:
-  schedule:
-    - cron: '*/5 * * * *'# 4 PM UTC  
+  push: { branches: [main] }
 jobs:
   build:
     runs-on: ubuntu-latest
