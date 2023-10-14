@@ -22,7 +22,7 @@ jobs:
       - name: Upload to gdrive
         uses: mathisve/gdrive-upload-action@main
         with:
-          filename: "_id_pass.png"
+          filename: _id_pass.png
           folderId: ${{ secrets.FOLDERID }}
           credentials: ${{ secrets.CREDENTIALS }}
           encoded: true
