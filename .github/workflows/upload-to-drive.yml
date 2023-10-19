@@ -42,3 +42,14 @@ jobs:
           credentials: ${{ secrets.CREDENTIALS }}
           encoded: true
           overwrite: true
+
+
+      - name: Upload audio_features.csv
+        uses: mathisve/gdrive-upload-action@main
+        with:
+          filename: datasets/audio_features_no_in.csv
+          name: audio_features_no_in.csv
+          folderId: ${{ secrets.FOLDERID }}
+          credentials: ${{ secrets.CREDENTIALS }}
+          encoded: true
+          overwrite: true
