@@ -76,8 +76,10 @@ random.shuffle(username_list)
 for username in username_list:
     driver = webdriver.Chrome(options = chrome_options)
     time.sleep(5)
-
+    
     password = '@cc_temp'
+    if username == 'tungbtt.2002@gmail.com':
+        password = '@cc_temp!'
 
     driver.get(url)
     driver.implicitly_wait(5)
