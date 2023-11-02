@@ -63,47 +63,61 @@ options = [
 for option in options:
     chrome_options.add_argument(option)
 
-    
-driver = webdriver.Chrome(options = chrome_options)
-
 
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+import random
 
-url = 'https://accounts.spotify.com/vi/login?continue=https%3A%2F%2Fcharts.spotify.com/login'
+url = 'https://accounts.spotify.com/'
 
-username = 'tungbtt.2002@gmail.com'
-password = '@cc_temp'
+username_list = ['tungbtt.2002@gmail.com','dokoya2435@ksyhtc.com', 'hegit34563@mugadget.com', 'yegice1055@ibtrades.com']
+random.shuffle(username_list)
 
-driver.get(url)
-time.sleep(5)
+for username in username_list:
+    driver = webdriver.Chrome(options = chrome_options)
+    time.sleep(5)
+    
+    password = '@cc_temp'
+    if username == 'tungbtt.2002@gmail.com':
+        password = '@cc_temp!'
 
-#driver.save_screenshot('_login.png')
+    driver.get(url)
+    driver.implicitly_wait(5)
+    time.sleep(5)
 
-#driver.find_element(By.XPATH, '//*[@id="__next"]/div/div/main/div[2]/div/header/div/div[2]/a/div[1]').click()
-#driver.implicitly_wait(5)
+    driver.find_element(By.XPATH, '//*[@id="login-username"]').send_keys(username)
+    driver.implicitly_wait(2)
+    time.sleep(3)
 
-driver.find_element(By.XPATH, '//*[@id="login-username"]').send_keys(username)
-driver.implicitly_wait(2)
+    driver.find_element(By.XPATH, '//*[@id="login-password"]').send_keys(password)
 
-driver.find_element(By.XPATH, '//*[@id="login-password"]').send_keys(password)
+    driver.implicitly_wait(2)
+    time.sleep(3)
 
-driver.implicitly_wait(2)
-time.sleep(2)
-#driver.save_screenshot('_id_pass.png')
 
-driver.find_element(By.XPATH, '//*[@id="login-button"]/span[1]').click()
-time.sleep(3)
+    driver.find_element(By.XPATH, '//*[@id="login-button"]/span[1]').click()
+    time.sleep(5)
 
+    driver.save_screenshot('login_status.png')
+
+    driver.get("https://charts.spotify.com/charts/view/regional-global-daily/latest")
+    driver.implicitly_wait(5)
+    time.sleep(5)
+
+
+
+    if len(driver.find_elements(By.XPATH, '//*[@id="date_picker"]')) <= 0:
+        print(username)
+        print("The website requires CAPTCHA authentication.")
+        driver.quit() 
+
+        if username == username_list[-1]:
+            exit()
+
+    else:
+        break
 
 print("The Spotify Global Chart is being crawled...")
-
-driver.get("https://charts.spotify.com/charts/view/regional-global-daily/latest")
-
-time.sleep(5)
-driver.implicitly_wait(5)
-
-#driver.save_screenshot('_global_chart.png')
 
 date_picker_element = driver.find_element(By.XPATH, '//*[@id="date_picker"]')
 date = convert_to_desired_format(date_picker_element.get_attribute('value'))
@@ -147,8 +161,8 @@ print("The Spotify Vietnam Chart is being crawled...")
 
 driver.get("https://charts.spotify.com/charts/view/regional-vn-daily/latest")
 
-time.sleep(5)
 driver.implicitly_wait(5)
+time.sleep(5)
 #driver.save_screenshot('_vn_chart.png')
 
 date_picker_element = driver.find_element(By.XPATH, '//*[@id="date_picker"]')

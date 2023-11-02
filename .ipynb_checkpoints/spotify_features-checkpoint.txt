@@ -1,0 +1,40 @@
+Spotify Chart Features:
+
+Chart:
+- Global Chart
+- Vietnam Chart
+
+Attributes:
+- date: Ngày xếp hạng
+- position: Thứ hạng
+- id: ID của bài hát
+- track: Tên bài hát
+- artist: Tên ca sĩ
+- peak: Thứ hạng cao nhất mà bài hát từng nhận được
+- prev: Thứ hạng ngày hôm trước
+- streak: Tổng số ngày liên tục mà bài hát có mặt trong bảng xếp hạng
+- streams: Lượt nghe
+
+Audio Features:
+
+- id: ID bài hát
+- danceability: Độ thích hợp để nhảy múa
+- energy: Mức năng lượng
+- key: Nốt nhạc cơ bản
+- loudness: Độ lớn tổng thể của bài hát (đơn vị: dB)
+- mode: Chế độ (major hoặc minor)
+- speechiness: Tính phổ biến của lời nói trong bài hát
+- acousticness: Mức độ acoustics
+- instrumentalness: Dự đoán liệu bài hát có chứa lời hát hay không
+- liveness: Dự đoán xem bài hát có được thực hiện trực tiếp hay không
+- valence: Đánh giá tính tích cực/nhã nhặn của bài hát
+- tempo: Nhịp điệu (BPM)
+- duration_ms: Thời lượng bài hát (ms)
+- time_signature: Nhịp bài hát
+- explicit: Bài hát chứa nội dung tục tĩu hay không
+- popularity: Độ phổ biến của bài hát (0-100)
+- release_date: Ngày phát hành
+- album_id: ID của album
+- album_name: Tên album
+- track_number: Số thứ tự của bài hát trong album
+- preview_url: Liên kết nghe thử bài hát
