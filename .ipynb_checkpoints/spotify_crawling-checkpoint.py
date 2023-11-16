@@ -83,7 +83,7 @@ for username in username_list:
 
     driver.get(url)
     driver.implicitly_wait(5)
-    time.sleep(5)
+    time.sleep(10)
 
     driver.find_element(By.XPATH, '//*[@id="login-username"]').send_keys(username)
     driver.implicitly_wait(2)
