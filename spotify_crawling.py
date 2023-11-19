@@ -70,7 +70,7 @@ import random
 
 url = 'https://accounts.spotify.com/'
 
-username_list = ['tungbtt.2002@gmail.com','dokoya2435@ksyhtc.com', 'hegit34563@mugadget.com', 'yegice1055@ibtrades.com']
+username_list = ['tungbtt.2002@gmail.com']
 random.shuffle(username_list)
 
 for username in username_list:
