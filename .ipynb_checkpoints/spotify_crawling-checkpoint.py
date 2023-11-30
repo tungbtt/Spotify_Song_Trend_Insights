@@ -79,7 +79,7 @@ for username in username_list:
     
     password = '@cc_temp'
     if username == 'tungbtt.2002@gmail.com':
-        password = '@cc_temp!'
+        password = '@cc_temp!spot'
 
     driver.get(url)
     driver.implicitly_wait(5)
@@ -98,13 +98,11 @@ for username in username_list:
     driver.find_element(By.XPATH, '//*[@id="login-button"]/span[1]').click()
     time.sleep(5)
 
-    driver.save_screenshot('login_status.png')
-
     driver.get("https://charts.spotify.com/charts/view/regional-global-daily/latest")
-    driver.implicitly_wait(5)
+    driver.implicitly_wait(10)
     time.sleep(5)
-
-
+    
+    driver.save_screenshot('login_status.png')
 
     if len(driver.find_elements(By.XPATH, '//*[@id="date_picker"]')) <= 0:
         print(username)
