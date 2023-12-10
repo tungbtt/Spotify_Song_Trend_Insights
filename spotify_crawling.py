@@ -87,16 +87,16 @@ for username in username_list:
 
     driver.find_element(By.XPATH, '//*[@id="login-username"]').send_keys(username)
     driver.implicitly_wait(2)
-    time.sleep(3)
+    time.sleep(5)
 
     driver.find_element(By.XPATH, '//*[@id="login-password"]').send_keys(password)
 
     driver.implicitly_wait(2)
-    time.sleep(3)
+    time.sleep(5)
 
 
     driver.find_element(By.XPATH, '//*[@id="login-button"]/span[1]').click()
-    time.sleep(5)
+    time.sleep(10)
 
     driver.get("https://charts.spotify.com/charts/view/regional-global-daily/latest")
     driver.implicitly_wait(10)
