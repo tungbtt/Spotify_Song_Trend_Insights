@@ -79,7 +79,7 @@ for username in username_list:
     
     password = '@cc_temp'
     if username == 'tungbtt.2002@gmail.com':
-        password = '@cc_temp!spotifyy'
+        password = '@cc_temp!!spot'
 
     driver.get(url)
     driver.implicitly_wait(5)
